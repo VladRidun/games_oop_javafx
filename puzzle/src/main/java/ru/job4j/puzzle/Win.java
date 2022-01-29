@@ -33,12 +33,4 @@ public class Win {
         }
         return result;
     }
-
-    public static int[] extractDiagonal(int[][] board) {
-        int[] rsl = new int[board.length];
-        for (int i = 0; i < board.length; i++) {
-            rsl[i] = board[i][i];
-        }
-        return rsl;
-    }
 }
