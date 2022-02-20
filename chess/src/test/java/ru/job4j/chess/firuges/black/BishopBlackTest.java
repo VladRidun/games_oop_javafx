@@ -4,12 +4,10 @@ package ru.job4j.chess.firuges.black;
 import org.junit.Test;
 import ru.job4j.chess.ImpossibleMoveException;
 import ru.job4j.chess.firuges.Cell;
-import ru.job4j.chess.firuges.Figure;
-
-import java.util.Arrays;
 
 import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
 
 public class BishopBlackTest {
 
@@ -27,7 +25,7 @@ public class BishopBlackTest {
     }
 
     @Test(expected = ImpossibleMoveException.class)
-    public void whenWayDiagonalExeption() {
+    public void whenWayDiagonalException() {
         BishopBlack bishopBlack = new BishopBlack(Cell.C1);
         bishopBlack.way(Cell.A2);
         throw new ImpossibleMoveException(String.format("Could not way by diagonal from %s to %s", Cell.A2, Cell.A4));
