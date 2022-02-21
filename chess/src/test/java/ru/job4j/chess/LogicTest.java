@@ -23,4 +23,12 @@ public class LogicTest {
         logic.move(Cell.C1, Cell.B2);
         throw new OccupiedCellException(String.format("Could not move! Cell is occupied."));
     }
+
+    @Test(expected = FigureNotFoundException.class)
+    public void whenFigureNotFound() throws  OccupiedCellException,FigureNotFoundException {
+        Logic logic = new Logic();
+        logic.add(new BishopBlack(Cell.C1));
+        logic.move(Cell.C1, Cell.C1);
+        throw new FigureNotFoundException();
+    }
 }
