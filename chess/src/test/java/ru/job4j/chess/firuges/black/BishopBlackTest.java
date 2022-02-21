@@ -28,11 +28,13 @@ public class BishopBlackTest {
     public void whenWayDiagonalException() {
         BishopBlack bishopBlack = new BishopBlack(Cell.C1);
         bishopBlack.way(Cell.A2);
-        throw new ImpossibleMoveException(String.format("Could not way by diagonal from %s to %s", Cell.A2, Cell.A4));
+        throw new ImpossibleMoveException(
+                String.format("Could not way by diagonal from %s to %s",
+                        Cell.A2, Cell.A4));
     }
 
     @Test
-    public void WhenWayC1toG5True() {
+    public void WhenWayC1ToG5True() {
         BishopBlack bishopBlackC1 = new BishopBlack(Cell.C1);
         assertThat(bishopBlackC1.way(Cell.G5), is(new Cell[]{Cell.D2, Cell.E3, Cell.F4, Cell.G5}));
     }
