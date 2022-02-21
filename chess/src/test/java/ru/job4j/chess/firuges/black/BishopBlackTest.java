@@ -34,7 +34,7 @@ public class BishopBlackTest {
     }
 
     @Test
-    public void WhenWayC1ToG5True() {
+    public void whenWayC1ToG5True() {
         BishopBlack bishopBlackC1 = new BishopBlack(Cell.C1);
         assertThat(bishopBlackC1.way(Cell.G5), is(new Cell[]{Cell.D2, Cell.E3, Cell.F4, Cell.G5}));
     }
