@@ -41,7 +41,8 @@ public class LogicTest {
             logic.add(new BishopBlack(Cell.C1));
             logic.move(Cell.C1, Cell.C3);
         });
-        String expectedMessage = String.format("Could not move by diagonal from %s to %s", Cell.C1, Cell.C3);
+        String expectedMessage = String.format("Could not move by diagonal from %s to %s",
+                Cell.C1, Cell.C3);
         String actualMessage = exception.getMessage();
         assertTrue(actualMessage.contains(expectedMessage));
     }
