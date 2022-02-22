@@ -21,39 +21,27 @@ public class LogicTest {
         logic.move(Cell.C1, Cell.H6);
     }
 
-    @Test
-    public void whenOccupiedCellException() {
-        Exception exception = assertThrows(OccupiedCellException.class, () -> {
+    @Test(expected = OccupiedCellException.class)
+    public void whenOccupiedCellException()  throws FigureNotFoundException, OccupiedCellException, ImpossibleMoveException {
             Logic logic = new Logic();
             logic.add(new BishopBlack(Cell.C1));
             logic.add(new PawnBlack(Cell.B2));
             logic.move(Cell.C1, Cell.B2);
-        });
-        String expectedMessage = "Could not move! Cell is occupied.";
-        String actualMessage = exception.getMessage();
-        assertTrue(actualMessage.contains(expectedMessage));
-    }
+           }
 
-    @Test
-    public void whenImpossibleMoveException() {
-        Exception exception = assertThrows(ImpossibleMoveException.class, () -> {
+    @Test(expected = ImpossibleMoveException.class)
+    public void whenImpossibleMoveException() throws FigureNotFoundException, OccupiedCellException, ImpossibleMoveException {
             Logic logic = new Logic();
             logic.add(new BishopBlack(Cell.C1));
             logic.move(Cell.C1, Cell.C3);
-        });
-        String expectedMessage = String.format("Could not move by diagonal from %s to %s",
-                Cell.C1, Cell.C3);
-        String actualMessage = exception.getMessage();
-        assertTrue(actualMessage.contains(expectedMessage));
+
     }
 
-    @Test
-    public void whenFigureNotFoundException() {
+    @Test(expected = FigureNotFoundException.class)
+    public void whenFigureNotFoundException() throws FigureNotFoundException, OccupiedCellException, ImpossibleMoveException {
         Logic logic = new Logic();
         logic.add(new BishopBlack(Cell.C2));
-        Exception exception = assertThrows(FigureNotFoundException.class, () -> {
-            logic.move(Cell.C1, Cell.C1);
-        });
-        assertNull(null);
+        logic.move(Cell.C1, Cell.C2);
+
     }
 }
