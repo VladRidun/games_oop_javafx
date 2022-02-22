@@ -22,23 +22,26 @@ public class LogicTest {
     }
 
     @Test(expected = OccupiedCellException.class)
-    public void whenOccupiedCellException()  throws FigureNotFoundException, OccupiedCellException, ImpossibleMoveException {
-            Logic logic = new Logic();
-            logic.add(new BishopBlack(Cell.C1));
-            logic.add(new PawnBlack(Cell.B2));
-            logic.move(Cell.C1, Cell.B2);
-           }
+    public void whenOccupiedCellException()
+            throws FigureNotFoundException, OccupiedCellException, ImpossibleMoveException {
+        Logic logic = new Logic();
+        logic.add(new BishopBlack(Cell.C1));
+        logic.add(new PawnBlack(Cell.B2));
+        logic.move(Cell.C1, Cell.B2);
+    }
 
     @Test(expected = ImpossibleMoveException.class)
-    public void whenImpossibleMoveException() throws FigureNotFoundException, OccupiedCellException, ImpossibleMoveException {
-            Logic logic = new Logic();
-            logic.add(new BishopBlack(Cell.C1));
-            logic.move(Cell.C1, Cell.C3);
+    public void whenImpossibleMoveException()
+            throws FigureNotFoundException, OccupiedCellException, ImpossibleMoveException {
+        Logic logic = new Logic();
+        logic.add(new BishopBlack(Cell.C1));
+        logic.move(Cell.C1, Cell.C3);
 
     }
 
     @Test(expected = FigureNotFoundException.class)
-    public void whenFigureNotFoundException() throws FigureNotFoundException, OccupiedCellException, ImpossibleMoveException {
+    public void whenFigureNotFoundException()
+            throws FigureNotFoundException, OccupiedCellException, ImpossibleMoveException {
         Logic logic = new Logic();
         logic.add(new BishopBlack(Cell.C2));
         logic.move(Cell.C1, Cell.C2);
